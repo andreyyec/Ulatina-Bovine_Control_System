@@ -1,4 +1,5 @@
-// SimpleTx
+// Modulo RF Tx/Rx
+
 
 #include <SPI.h>
 #include <nRF24L01.h>
