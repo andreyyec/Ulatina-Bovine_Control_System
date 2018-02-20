@@ -12,18 +12,19 @@
 RFManager::RFManager(RF24& radio, HardwareSerial &print) {
     _newData = false;
     _print = &print;
-    _print->begin(9600);
    	_radio = radio;
   	_radio.begin();
   	_radio.setDataRate( RF24_250KBPS );
 }
 
 void RFManager::setListener() {
+	_print->println("=> Setting Listener...");
 	_radio.openReadingPipe(1,_slaveAddress);
   	_radio.startListening();
 }
 
 void RFManager::setWriter() {
+	_print->println("=> Setting Writer...");
 	_radio.setRetries(3,5); // delay, count
  	_radio.openWritingPipe(_slaveAddress); //Abrir canal para escribir
 }
