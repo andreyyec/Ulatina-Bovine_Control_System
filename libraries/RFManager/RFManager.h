@@ -5,13 +5,13 @@
 #ifndef RFManager_h
 #define RFManager_h
 
-#include "SoftwareSerial.h"
+#include "HardwareSerial.h"
 #include "Arduino.h"
 //#include "RF24.h"
 
 class RFManager {
   public:
-    RFManager(RF24& radio);
+    RFManager(RF24& radio, HardwareSerial& print);
     void setWriter();
     void setListener();
     void sendData();
@@ -26,6 +26,7 @@ class RFManager {
     bool _rslt;
     char _txNum = 1; 
     RF24& _radio;
+    HardwareSerial* _print;
 };
 
 #endif
